@@ -127,7 +127,7 @@ const MenuItem = styled.div`
     position: relative;
     font-size: 14px;
     cursor: pointer;
-    margin-right: 35px;
+    margin-right: 25px;
     color: ${props => (props.path === props.name) ? 'teal' : ''};
     &:hover{
         color: teal;
