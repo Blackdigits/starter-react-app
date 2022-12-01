@@ -30,7 +30,7 @@ const Container = styled.div`
     };
     @media only screen and (max-width: 480px) {
         min-width: 43vw;
-        height: 28vh;
+        height: 205px;
         margin: 4px 0;
     }
 `;
