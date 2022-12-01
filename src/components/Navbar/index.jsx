@@ -243,6 +243,9 @@ const Navbar = () => {
                 <Link style={{ textDecoration: 'none', color: 'black'  }} to={'/tentangkami'}>
                     <MenuItem path={path[1]} name={'tentangkami'}>TENTANG KAMI</MenuItem>
                 </Link>
+                <Link style={{ textDecoration: 'none', color: 'black'  }} to={'/admin'}>
+                    <MenuItem path={path[1]} name={'admin'}>Login</MenuItem>
+                </Link>
             </Right>
             <ToogleContainer onClick={handleToogle}>
                 <DehazeIcon style={{ color: "gray" }}  />
