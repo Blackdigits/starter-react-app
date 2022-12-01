@@ -26,6 +26,7 @@ const Left = styled.div`
 
 const Logo = styled.img`
     width: 100px;
+    margin-top: 7px;
 `;
 
 const Desc = styled.p`
