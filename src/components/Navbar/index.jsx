@@ -244,7 +244,7 @@ const Navbar = () => {
                     <MenuItem path={path[1]} name={'tentangkami'}>TENTANG KAMI</MenuItem>
                 </Link>
                 <Link style={{ textDecoration: 'none', color: 'black'  }} to={'/admin'}>
-                    <MenuItem path={path[1]} name={'admin'}>Login</MenuItem>
+                    <MenuItem path={path[1]} name={'admin'}>LOGIN</MenuItem>
                 </Link>
             </Right>
             <ToogleContainer onClick={handleToogle}>
