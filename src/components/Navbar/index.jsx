@@ -19,7 +19,7 @@ const Container = styled.div`
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.33);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.33);
     ${mobile({
-        height: '7vh',
+        height: '50px',
     })}
 `;
 
