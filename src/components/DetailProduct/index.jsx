@@ -91,13 +91,12 @@ const ColorTitle = styled.span`
     })} 
 `;
 const Color = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: ${props => props.color};
-    border: 1px solid rgba(0,0,0,.125);
+    padding: 3px;
     margin-right: 7px;
+    border: 1px solid gray;
+    border-radius: 3px;
     cursor: pointer;
+    background-color: ${props => props.index === props.color ? 'teal' : 'white'};
 `;
 const ButtonContainer = styled.button`
     display: flex;
@@ -154,7 +153,7 @@ const DetailProduct = () => {
                     <ColorContainer>
                         <ColorTitle>Colors :</ColorTitle>
                         {dataProduct.dataProductById.data.colors.map((item, index) => 
-                            <Color color={item.color} key={index} onClick={() => setColor(index)} />
+                            <Color key={index} index={index} color={color} onClick={() => setColor(index)}>{item.color.toUpperCase()}</Color>
                         )}
                     </ColorContainer>
                     <ButtonContainer>
