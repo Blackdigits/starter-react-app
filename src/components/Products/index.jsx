@@ -17,6 +17,7 @@ const Container = styled.div`
  
 const Wrapper = styled.div`
     display: flex;
+    background-color: #f5fbfd;
     padding: ${props => props.page === 'home' ? '20px' : '20px 40px'};
     flex-wrap: wrap;
     justify-content: ${props => props.page === 'home' ? 'space-between' : ''};
