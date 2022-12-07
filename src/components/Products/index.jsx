@@ -26,7 +26,6 @@ const Wrapper = styled.div`
   })}
 `
 
-
 const Info = styled.div`
   cursor: pointer;
   color: teal; 
@@ -59,8 +58,8 @@ const Products = ({page, data, productType}) => {
                 {
                   dataProduct.dataProductHome ?
                   <>
-                    {dataProduct.dataProductHome.data.map((item) => 
-                      (<ProductItem item={item} key={item._id} />)
+                    {dataProduct.dataProductHome.data.map((item, index) => 
+                      (<ProductItem index={index} item={item} key={item._id} />)
                     )}
                   </>  
                   :
