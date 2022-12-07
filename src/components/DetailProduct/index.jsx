@@ -97,6 +97,7 @@ const Color = styled.div`
     border-radius: 3px;
     cursor: pointer;
     background-color: ${props => props.index === props.color ? 'teal' : 'white'};
+    color: ${props => props.index === props.color ? 'white' : 'black'};
 `;
 const ButtonContainer = styled.button`
     display: flex;
