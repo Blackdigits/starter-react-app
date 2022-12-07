@@ -29,6 +29,7 @@ const Container = styled.div`
         opacity: 0.5;
     };
     @media only screen and (max-width: 480px) {
+        display: ${props => props.index > 5 ? 'none' : 'flex'};
         min-width: 43vw;
         height: 205px;
         margin: 4px 0;
@@ -142,11 +143,11 @@ const DashPrice = styled.p`
         fontSize: '12px'
     })}
 `;
-const ProductItem = ({item}) => { 
+const ProductItem = ({item, index}) => { 
     const location = useLocation().pathname;
     const navigate = useNavigate();
   return (
-    <Container location={location} onClick={() => navigate(`/produk/${item._id}`)}>
+    <Container index={index} location={location} onClick={() => navigate(`/produk/${item._id}`)}>
         <ImageContainer>
             <Image src={item.colors[0].image ? `${host_url}/${item.colors[0].image}` : ''} />
             <ColorContainer>
