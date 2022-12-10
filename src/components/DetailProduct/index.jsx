@@ -31,7 +31,7 @@ const imageAnimation = keyframes`
     0% {opacity: 0}
     100% {opacity: 1}
 `;
-const Image = styled.img`
+const ImageDetail = styled.img`
     width: 100%;
     height: 80vh;
     object-fit: cover;
@@ -145,7 +145,7 @@ const DetailProduct = () => {
             <>
                 <ImageContainer>
                     {data.colors.map((item, index) => 
-                        <Image index={index} activeColor={color} src={item.image ? `${host_url}/${item.image}` : ''} />
+                        (<ImageDetail index={index} activeColor={color} src={item.image ? `${host_url}/${item.image}` : ''} />)
                     )}
                 </ImageContainer>
                 <InfoContainer>
