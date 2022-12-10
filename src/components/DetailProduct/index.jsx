@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import { formatRupiah } from '../../config/formatRupiah';
 import {useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {Skeleton} from "@mui/material";
 import { host_url } from '../../config';
 import {mobile} from "../../config/responsive";
+
 
 const Container = styled.div`
     padding-top: 8.5vh;
@@ -14,6 +15,7 @@ const Container = styled.div`
         paddingTop: '50px'
     })}
 `;
+
 const Wrapper = styled.div`
     margin-top: 3vh;
     padding: 20px 40px;
@@ -24,17 +26,10 @@ const Wrapper = styled.div`
         padding: '0 20px',
     })}
 `;
-const imageAnimation = keyframes`
-    0% {opacity: 0}
-    100% {opacity: 1}
-`;
 const ImageContainer = styled.div`
     flex: 1;
-    display: ${props => props.activeColor === props.index ? 'block' : 'none'};
-    animation-name: ${imageAnimation};
-    animation-duration: 2s;
 `; 
-const ImageDetail = styled.img`
+const Image = styled.img`
     width: 100%;
     height: 80vh;
     object-fit: cover;
@@ -55,7 +50,6 @@ const InfoContainer = styled.div`
 const Title = styled.h1`
     font-weight: 200;
     margin-top: 0;
-    transition: all 1.5s ease;
     ${mobile({
         fontSize: '25px'
     })}    
@@ -143,25 +137,23 @@ const DetailProduct = () => {
         <Wrapper>
         {data ?
             <>
-                {data.colors.map((item, index) => 
-                    <ImageContainer index={index} activeColor={color}>
-                        <ImageDetail  src={item.image ? `${host_url}/${item.image}` : ''} />
-                    </ImageContainer>    
-                )}
+                <ImageContainer>
+                    <Image src={data.colors[color].image ? `${host_url}/${data.colors[color].image}` : ''} />
+                </ImageContainer>
                 <InfoContainer>
-                    <Title>{data.name.toUpperCase()}</Title>
-                    <Desc>{data.desc.toUpperCase()}</Desc>
-                    {data.promoPrice === 0 ?
-                    <Price>Rp {formatRupiah(data.price)}</Price>
+                    <Title>{dataProduct.dataProductById.data.name.toUpperCase()}</Title>
+                    <Desc>{dataProduct.dataProductById.data.desc.toUpperCase()}</Desc>
+                    {dataProduct.dataProductById.data.promoPrice === 0 ?
+                    <Price>Rp {formatRupiah(dataProduct.dataProductById.data.price)}</Price>
                     :
                     <>
-                        <Price>Rp {formatRupiah(data.promoPrice)}</Price>
-                        <Price><s>Rp {formatRupiah(data.price)}</s></Price>
+                        <Price>Rp {formatRupiah(dataProduct.dataProductById.data.promoPrice)}</Price>
+                        <Price><s>Rp {formatRupiah(dataProduct.dataProductById.data.price)}</s></Price>
                     </>
                     }
                     <ColorContainer>
                         <ColorTitle>Colors :</ColorTitle>
-                        {data.colors.map((item, index) => 
+                        {dataProduct.dataProductById.data.colors.map((item, index) => 
                             <Color key={index} index={index} color={color} onClick={() => setColor(index)}>{item.color.toUpperCase()}</Color>
                         )}
                     </ColorContainer>
