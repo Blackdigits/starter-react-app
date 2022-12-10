@@ -24,20 +24,20 @@ const Wrapper = styled.div`
         padding: '0 20px',
     })}
 `;
-const ImageContainer = styled.div`
-    flex: 1;
-`; 
 const imageAnimation = keyframes`
     0% {opacity: 0}
     100% {opacity: 1}
 `;
+const ImageContainer = styled.div`
+    flex: 1;
+    display: ${props => props.activeColor === props.index ? 'block' : 'none'};
+    animation-name: ${imageAnimation};
+    animation-duration: 2s;
+`; 
 const ImageDetail = styled.img`
     width: 100%;
     height: 80vh;
     object-fit: cover;
-    animation-name: ${imageAnimation};
-    animation-duration: 2s;
-    display: ${props => props.activeColor === props.index ? 'block' : 'none'};
     ${mobile({
         width: '100%',
         height: '232px',
@@ -143,11 +143,11 @@ const DetailProduct = () => {
         <Wrapper>
         {data ?
             <>
-                <ImageContainer>
-                    {data.colors.map((item, index) => 
-                        (<ImageDetail index={index} activeColor={color} src={item.image ? `${host_url}/${item.image}` : ''} />)
-                    )}
-                </ImageContainer>
+                {data.colors.map((item, index) => 
+                    <ImageContainer index={index} activeColor={color}>
+                        <ImageDetail  src={item.image ? `${host_url}/${item.image}` : ''} />
+                    </ImageContainer>    
+                )}
                 <InfoContainer>
                     <Title>{data.name.toUpperCase()}</Title>
                     <Desc>{data.desc.toUpperCase()}</Desc>
